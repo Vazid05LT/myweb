@@ -1,0 +1,89 @@
+{
+  "rewrites": [
+    {
+      "source": "/forms",
+      "destination": "/forms"
+    },
+    {
+      "source": "/auth",
+      "destination": "/auth"
+    },
+    {
+      "source": "/file-upload",
+      "destination": "/file-upload"
+    },
+    {
+      "source": "/image-injection",
+      "destination": "/image-injection"
+    },
+    {
+      "source": "/todo",
+      "destination": "/todo"
+    },
+    {
+      "source": "/dynamic-content",
+      "destination": "/dynamic-content"
+    },
+    {
+      "source": "/infinite-scroll",
+      "destination": "/infinite-scroll"
+    },
+    {
+      "source": "/accessibility",
+      "destination": "/accessibility"
+    },
+    {
+      "source": "/performance",
+      "destination": "/performance"
+    },
+    {
+      "source": "/error-handling",
+      "destination": "/error-handling"
+    },
+    {
+      "source": "/testing-features",
+      "destination": "/testing-features"
+    },
+    {
+      "source": "/responsive-demo",
+      "destination": "/responsive-demo"
+    },
+    {
+      "source": "/modals",
+      "destination": "/modals"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/form",
+      "destination": "/forms",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "/auth",
+      "permanent": true
+    },
+    {
+      "source": "/upload",
+      "destination": "/file-upload",
+      "permanent": true
+    },
+    {
+      "source": "/images",
+      "destination": "/image-injection",
+      "permanent": true
+    },
+    {
+      "source": "/todos",
+      "destination": "/todo",
+      "permanent": true
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+} 
