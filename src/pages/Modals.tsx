@@ -7,6 +7,8 @@ const Modals: React.FC = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [showAlertModal, setShowAlertModal] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
+  const [showNestedModal, setShowNestedModal] = useState(false)
+  const [showNestedPopup, setShowNestedPopup] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '' })
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -104,6 +106,34 @@ const Modals: React.FC = () => {
               This is a tooltip message!
             </div>
           )}
+        </div>
+
+        <div className="item">
+          <h3>Nested Popup Demo</h3>
+          <p>Open a popup that contains multiple CTAs to trigger nested popups.</p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <button 
+              onClick={() => setShowNestedModal(true)}
+              data-testid="open-nested-modal"
+              style={{ background: '#646cff', color: 'white' }}
+            >
+              🚀 Open Primary Popup
+            </button>
+            <button 
+              onClick={() => setShowNestedModal(true)}
+              data-testid="open-nested-modal-alt"
+              style={{ background: '#28a745', color: 'white' }}
+            >
+              ✨ Try Nested Popups
+            </button>
+            <button 
+              onClick={() => setShowNestedModal(true)}
+              data-testid="open-nested-modal-cta"
+              style={{ background: '#ff6b35', color: 'white' }}
+            >
+              🎯 Explore Features
+            </button>
+          </div>
         </div>
       </div>
 
@@ -216,16 +246,234 @@ const Modals: React.FC = () => {
         </div>
       )}
 
+      {/* Nested Modal - Primary Popup */}
+      {showNestedModal && (
+        <div className="modal" data-testid="nested-modal">
+          <div className="modal-content" style={{ maxWidth: '600px' }}>
+            <h2>🎉 Primary Popup with Multiple CTAs</h2>
+            <p>This popup contains several call-to-action buttons. Click any of them to open a nested popup!</p>
+            
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+              gap: '15px', 
+              margin: '20px 0' 
+            }}>
+              <button 
+                onClick={() => setShowNestedPopup(true)}
+                data-testid="open-nested-popup-1"
+                style={{ 
+                  background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '15px 20px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  fontWeight: '600'
+                }}
+              >
+                🚀 Launch Nested Popup
+              </button>
+              
+              <button 
+                onClick={() => setShowNestedPopup(true)}
+                data-testid="open-nested-popup-2"
+                style={{ 
+                  background: 'linear-gradient(45deg, #f093fb 0%, #f5576c 100%)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '15px 20px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  fontWeight: '600'
+                }}
+              >
+                ✨ Show Details
+              </button>
+              
+              <button 
+                onClick={() => setShowNestedPopup(true)}
+                data-testid="open-nested-popup-3"
+                style={{ 
+                  background: 'linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '15px 20px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  fontWeight: '600'
+                }}
+              >
+                🎯 Get Started
+              </button>
+              
+              <button 
+                onClick={() => setShowNestedPopup(true)}
+                data-testid="open-nested-popup-4"
+                style={{ 
+                  background: 'linear-gradient(45deg, #43e97b 0%, #38f9d7 100%)',
+                  color: 'white',
+                  border: 'none',
+                  padding: '15px 20px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: '16px',
+                  fontWeight: '600'
+                }}
+              >
+                💡 Learn More
+              </button>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
+              <button 
+                onClick={() => setShowNestedModal(false)}
+                data-testid="close-nested-modal"
+                style={{ 
+                  background: '#6c757d',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '5px',
+                  cursor: 'pointer'
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Nested Popup - Secondary Modal */}
+      {showNestedPopup && (
+        <div className="modal" data-testid="nested-popup" style={{ zIndex: 1001 }}>
+          <div className="modal-content" style={{ maxWidth: '500px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
+            <h2>🎊 Nested Popup Activated!</h2>
+            <p>Congratulations! You successfully opened a nested popup. This demonstrates the layered modal functionality.</p>
+            
+            <div style={{ 
+              background: 'rgba(255, 255, 255, 0.1)', 
+              padding: '20px', 
+              borderRadius: '10px', 
+              margin: '20px 0',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <h3 style={{ margin: '0 0 15px 0', color: '#fff' }}>Available Actions:</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <button 
+                  onClick={() => toast.success('Action 1 executed!')}
+                  data-testid="nested-action-1"
+                  style={{ 
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    color: 'white',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    padding: '12px 20px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}
+                >
+                  🔥 Execute Action 1
+                </button>
+                
+                <button 
+                  onClick={() => toast('Action 2 executed!', { icon: 'ℹ️' })}
+                  data-testid="nested-action-2"
+                  style={{ 
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    color: 'white',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    padding: '12px 20px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}
+                >
+                  ⚡ Execute Action 2
+                </button>
+                
+                <button 
+                  onClick={() => toast('Action 3 executed!', { icon: '⚠️' })}
+                  data-testid="nested-action-3"
+                  style={{ 
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    color: 'white',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    padding: '12px 20px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}
+                >
+                  🎯 Execute Action 3
+                </button>
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
+              <button 
+                onClick={() => setShowNestedPopup(false)}
+                data-testid="close-nested-popup"
+                style={{ 
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  color: 'white',
+                  border: '2px solid rgba(255, 255, 255, 0.3)',
+                  padding: '10px 20px',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}
+              >
+                Close Nested Popup
+              </button>
+              
+              <button 
+                onClick={() => {
+                  setShowNestedPopup(false)
+                  setShowNestedModal(false)
+                }}
+                data-testid="close-all-popups"
+                style={{ 
+                  background: 'rgba(255, 255, 255, 0.3)',
+                  color: 'white',
+                  border: '2px solid rgba(255, 255, 255, 0.5)',
+                  padding: '10px 20px',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontWeight: '600'
+                }}
+              >
+                Close All
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Backdrop click handler for all modals */}
-      {(showBasicModal || showFormModal || showConfirmModal || showAlertModal) && (
+      {(showBasicModal || showFormModal || showConfirmModal || showAlertModal || showNestedModal || showNestedPopup) && (
         <div 
           className="modal-backdrop"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
-              setShowBasicModal(false)
-              setShowFormModal(false)
-              setShowConfirmModal(false)
-              setShowAlertModal(false)
+              // Close nested popup first, then primary modal
+              if (showNestedPopup) {
+                setShowNestedPopup(false)
+              } else if (showNestedModal) {
+                setShowNestedModal(false)
+              } else {
+                setShowBasicModal(false)
+                setShowFormModal(false)
+                setShowConfirmModal(false)
+                setShowAlertModal(false)
+              }
             }
           }}
           style={{
@@ -234,8 +482,8 @@ const Modals: React.FC = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 999
+            background: showNestedPopup ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0.5)',
+            zIndex: showNestedPopup ? 1000 : 999
           }}
         />
       )}

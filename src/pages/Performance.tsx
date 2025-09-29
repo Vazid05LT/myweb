@@ -70,6 +70,7 @@ const Performance: React.FC = () => {
             )}
           </div>
         </div>
+
       </div>
 
       <div className="section">
