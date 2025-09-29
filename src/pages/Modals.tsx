@@ -111,25 +111,69 @@ const Modals: React.FC = () => {
         <div className="item">
           <h3>Nested Popup Demo</h3>
           <p>Open a popup that contains multiple CTAs to trigger nested popups.</p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: '8px', 
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+          }}>
             <button 
               onClick={() => setShowNestedModal(true)}
               data-testid="open-nested-modal"
-              style={{ background: '#646cff', color: 'white' }}
+              style={{ 
+                background: '#646cff', 
+                color: 'white',
+                padding: '12px 16px',
+                fontSize: '14px',
+                minWidth: '140px',
+                height: '48px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                fontWeight: '600',
+                boxShadow: '0 2px 8px rgba(100, 108, 255, 0.3)',
+                transition: 'all 0.2s ease'
+              }}
             >
               🚀 Open Primary Popup
             </button>
             <button 
               onClick={() => setShowNestedModal(true)}
               data-testid="open-nested-modal-alt"
-              style={{ background: '#28a745', color: 'white' }}
+              style={{ 
+                background: '#28a745', 
+                color: 'white',
+                padding: '12px 16px',
+                fontSize: '14px',
+                minWidth: '140px',
+                height: '48px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                fontWeight: '600',
+                boxShadow: '0 2px 8px rgba(40, 167, 69, 0.3)',
+                transition: 'all 0.2s ease'
+              }}
             >
               ✨ Try Nested Popups
             </button>
             <button 
               onClick={() => setShowNestedModal(true)}
               data-testid="open-nested-modal-cta"
-              style={{ background: '#ff6b35', color: 'white' }}
+              style={{ 
+                background: '#ff6b35', 
+                color: 'white',
+                padding: '12px 16px',
+                fontSize: '14px',
+                minWidth: '140px',
+                height: '48px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                fontWeight: '600',
+                boxShadow: '0 2px 8px rgba(255, 107, 53, 0.3)',
+                transition: 'all 0.2s ease'
+              }}
             >
               🎯 Explore Features
             </button>
@@ -249,14 +293,25 @@ const Modals: React.FC = () => {
       {/* Nested Modal - Primary Popup */}
       {showNestedModal && (
         <div className="modal" data-testid="nested-modal">
-          <div className="modal-content" style={{ maxWidth: '600px' }}>
-            <h2>🎉 Primary Popup with Multiple CTAs</h2>
-            <p>This popup contains several call-to-action buttons. Click any of them to open a nested popup!</p>
+          <div className="modal-content" style={{ 
+            maxWidth: '90vw',
+            width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            margin: '20px',
+            padding: '20px'
+          }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', marginBottom: '15px' }}>
+              🎉 Primary Popup with Multiple CTAs
+            </h2>
+            <p style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', marginBottom: '20px', lineHeight: '1.5' }}>
+              This popup contains several call-to-action buttons. Click any of them to open a nested popup!
+            </p>
             
             <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '15px', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', 
+              gap: '12px', 
               margin: '20px 0' 
             }}>
               <button 
@@ -266,11 +321,18 @@ const Modals: React.FC = () => {
                   background: 'linear-gradient(45deg, #667eea 0%, #764ba2 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '15px 20px',
-                  borderRadius: '8px',
+                  padding: '16px 12px',
+                  borderRadius: '12px',
                   cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: '600'
+                  fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+                  fontWeight: '600',
+                  minHeight: '56px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  boxShadow: '0 4px 12px rgba(102, 126, 234, 0.3)',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 🚀 Launch Nested Popup
@@ -283,11 +345,18 @@ const Modals: React.FC = () => {
                   background: 'linear-gradient(45deg, #f093fb 0%, #f5576c 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '15px 20px',
-                  borderRadius: '8px',
+                  padding: '16px 12px',
+                  borderRadius: '12px',
                   cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: '600'
+                  fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+                  fontWeight: '600',
+                  minHeight: '56px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  boxShadow: '0 4px 12px rgba(240, 147, 251, 0.3)',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 ✨ Show Details
@@ -300,11 +369,18 @@ const Modals: React.FC = () => {
                   background: 'linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '15px 20px',
-                  borderRadius: '8px',
+                  padding: '16px 12px',
+                  borderRadius: '12px',
                   cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: '600'
+                  fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+                  fontWeight: '600',
+                  minHeight: '56px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  boxShadow: '0 4px 12px rgba(79, 172, 254, 0.3)',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 🎯 Get Started
@@ -317,18 +393,31 @@ const Modals: React.FC = () => {
                   background: 'linear-gradient(45deg, #43e97b 0%, #38f9d7 100%)',
                   color: 'white',
                   border: 'none',
-                  padding: '15px 20px',
-                  borderRadius: '8px',
+                  padding: '16px 12px',
+                  borderRadius: '12px',
                   cursor: 'pointer',
-                  fontSize: '16px',
-                  fontWeight: '600'
+                  fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+                  fontWeight: '600',
+                  minHeight: '56px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  boxShadow: '0 4px 12px rgba(67, 233, 123, 0.3)',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 💡 Learn More
               </button>
             </div>
             
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
+            <div style={{ 
+              display: 'flex', 
+              gap: '10px', 
+              justifyContent: 'center',
+              marginTop: '20px',
+              flexWrap: 'wrap'
+            }}>
               <button 
                 onClick={() => setShowNestedModal(false)}
                 data-testid="close-nested-modal"
@@ -336,9 +425,13 @@ const Modals: React.FC = () => {
                   background: '#6c757d',
                   color: 'white',
                   border: 'none',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
-                  cursor: 'pointer'
+                  padding: '12px 24px',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  fontWeight: '600',
+                  minHeight: '48px',
+                  minWidth: '100px'
                 }}
               >
                 Close
@@ -351,19 +444,52 @@ const Modals: React.FC = () => {
       {/* Nested Popup - Secondary Modal */}
       {showNestedPopup && (
         <div className="modal" data-testid="nested-popup" style={{ zIndex: 1001 }}>
-          <div className="modal-content" style={{ maxWidth: '500px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
-            <h2>🎊 Nested Popup Activated!</h2>
-            <p>Congratulations! You successfully opened a nested popup. This demonstrates the layered modal functionality.</p>
+          <div className="modal-content" style={{ 
+            maxWidth: '90vw',
+            width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            margin: '20px',
+            padding: '20px',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+            color: 'white' 
+          }}>
+            <h2 style={{ 
+              fontSize: 'clamp(1.3rem, 4vw, 1.8rem)', 
+              marginBottom: '15px',
+              textAlign: 'center'
+            }}>
+              🎊 Nested Popup Activated!
+            </h2>
+            <p style={{ 
+              fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', 
+              marginBottom: '20px', 
+              lineHeight: '1.5',
+              textAlign: 'center'
+            }}>
+              Congratulations! You successfully opened a nested popup. This demonstrates the layered modal functionality.
+            </p>
             
             <div style={{ 
               background: 'rgba(255, 255, 255, 0.1)', 
               padding: '20px', 
-              borderRadius: '10px', 
+              borderRadius: '15px', 
               margin: '20px 0',
               backdropFilter: 'blur(10px)'
             }}>
-              <h3 style={{ margin: '0 0 15px 0', color: '#fff' }}>Available Actions:</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <h3 style={{ 
+                margin: '0 0 20px 0', 
+                color: '#fff',
+                fontSize: 'clamp(1rem, 3vw, 1.2rem)',
+                textAlign: 'center'
+              }}>
+                Available Actions:
+              </h3>
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: '12px' 
+              }}>
                 <button 
                   onClick={() => toast.success('Action 1 executed!')}
                   data-testid="nested-action-1"
@@ -371,11 +497,17 @@ const Modals: React.FC = () => {
                     background: 'rgba(255, 255, 255, 0.2)',
                     color: 'white',
                     border: '2px solid rgba(255, 255, 255, 0.3)',
-                    padding: '12px 20px',
-                    borderRadius: '6px',
+                    padding: '16px 20px',
+                    borderRadius: '12px',
                     cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '500'
+                    fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                    fontWeight: '600',
+                    minHeight: '56px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   🔥 Execute Action 1
@@ -388,11 +520,17 @@ const Modals: React.FC = () => {
                     background: 'rgba(255, 255, 255, 0.2)',
                     color: 'white',
                     border: '2px solid rgba(255, 255, 255, 0.3)',
-                    padding: '12px 20px',
-                    borderRadius: '6px',
+                    padding: '16px 20px',
+                    borderRadius: '12px',
                     cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '500'
+                    fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                    fontWeight: '600',
+                    minHeight: '56px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   ⚡ Execute Action 2
@@ -405,11 +543,17 @@ const Modals: React.FC = () => {
                     background: 'rgba(255, 255, 255, 0.2)',
                     color: 'white',
                     border: '2px solid rgba(255, 255, 255, 0.3)',
-                    padding: '12px 20px',
-                    borderRadius: '6px',
+                    padding: '16px 20px',
+                    borderRadius: '12px',
                     cursor: 'pointer',
-                    fontSize: '14px',
-                    fontWeight: '500'
+                    fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                    fontWeight: '600',
+                    minHeight: '56px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
                   }}
                 >
                   🎯 Execute Action 3
@@ -417,7 +561,13 @@ const Modals: React.FC = () => {
               </div>
             </div>
             
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginTop: '20px' }}>
+            <div style={{ 
+              display: 'flex', 
+              gap: '12px', 
+              justifyContent: 'center', 
+              marginTop: '20px',
+              flexWrap: 'wrap'
+            }}>
               <button 
                 onClick={() => setShowNestedPopup(false)}
                 data-testid="close-nested-popup"
@@ -425,13 +575,17 @@ const Modals: React.FC = () => {
                   background: 'rgba(255, 255, 255, 0.2)',
                   color: 'white',
                   border: '2px solid rgba(255, 255, 255, 0.3)',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
+                  padding: '12px 20px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
-                  fontWeight: '500'
+                  fontWeight: '600',
+                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  minHeight: '48px',
+                  minWidth: '120px',
+                  transition: 'all 0.2s ease'
                 }}
               >
-                Close Nested Popup
+                Close Nested
               </button>
               
               <button 
@@ -444,10 +598,14 @@ const Modals: React.FC = () => {
                   background: 'rgba(255, 255, 255, 0.3)',
                   color: 'white',
                   border: '2px solid rgba(255, 255, 255, 0.5)',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
+                  padding: '12px 20px',
+                  borderRadius: '8px',
                   cursor: 'pointer',
-                  fontWeight: '600'
+                  fontWeight: '700',
+                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
+                  minHeight: '48px',
+                  minWidth: '120px',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 Close All
