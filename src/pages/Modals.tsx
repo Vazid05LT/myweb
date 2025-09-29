@@ -292,7 +292,7 @@ const Modals: React.FC = () => {
 
       {/* Nested Modal - Primary Popup */}
       {showNestedModal && (
-        <div className="modal" data-testid="nested-modal">
+        <div className="modal" data-testid="nested-modal" style={{ zIndex: 1000 }}>
           <div className="modal-content" style={{ 
             maxWidth: '90vw',
             width: '100%',
@@ -443,7 +443,7 @@ const Modals: React.FC = () => {
 
       {/* Nested Popup - Secondary Modal */}
       {showNestedPopup && (
-        <div className="modal" data-testid="nested-popup" style={{ zIndex: 1001 }}>
+        <div className="modal" data-testid="nested-popup" style={{ zIndex: 1002 }}>
           <div className="modal-content" style={{ 
             maxWidth: '90vw',
             width: '100%',
@@ -641,7 +641,7 @@ const Modals: React.FC = () => {
             width: '100%',
             height: '100%',
             background: showNestedPopup ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0.5)',
-            zIndex: showNestedPopup ? 1000 : 999
+            zIndex: showNestedPopup ? 1001 : 999
           }}
         />
       )}
